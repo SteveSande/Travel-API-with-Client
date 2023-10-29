@@ -3,6 +3,7 @@ import { app } from "./client";
 
 export default function App() {
   useEffect(() => {
+    app.authenticate();
     let pictures;
     async function getPics() {
       await app.service("pictures").create({

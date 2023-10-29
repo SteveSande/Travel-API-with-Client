@@ -9,4 +9,4 @@ export const app = feathers();
 app.configure(restClient.fetch(window.fetch.bind(window)));
 
 // Available options are listed in the "Options" section
-app.configure(authentication());
+app.configure(authentication({ storage: localStorage }));

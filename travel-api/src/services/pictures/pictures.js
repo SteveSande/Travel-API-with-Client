@@ -31,7 +31,7 @@ export const picture = (app) => {
   app.service(picturePath).hooks({
     around: {
       all: [schemaHooks.resolveExternal(pictureExternalResolver), schemaHooks.resolveResult(pictureResolver)],
-      create: [],
+      create: [authenticate('jwt')],
       patch: [authenticate('jwt')],
       remove: [authenticate('jwt')]
     },
