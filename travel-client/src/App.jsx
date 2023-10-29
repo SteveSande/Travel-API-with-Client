@@ -20,5 +20,16 @@ export default function App() {
     getPics();
   }, []);
 
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <button
+        onClick={() =>
+          (window.location.href = "http://localhost:3030/oauth/google")
+        }
+      >
+        Admin
+      </button>
+    </div>
+  );
 }
