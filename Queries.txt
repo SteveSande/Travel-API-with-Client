@@ -1,0 +1,22 @@
+General Considerations:
+- limits
+- pagination
+
+Get Random Image(s)
+
+Get Image(s) Filtered By:
+- destination
+- region
+- country
+- subdivision
+- tag
+Variant Examples:
+- Canada and tag is mountains and tag is snow
+- Canada and tag is not mountains
+
+Get List Of:
+- destinations
+- regions
+- countries
+- subdivisions
+- tags
