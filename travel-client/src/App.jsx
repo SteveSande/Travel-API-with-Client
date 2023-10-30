@@ -3,6 +3,7 @@ import { app } from "./client";
 import Header from "./components/header";
 import Content from "./components/content";
 import Query from "./components/query";
+import Response from "./components/response";
 
 export default function App() {
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function App() {
       <Header />
       <main className="flex flex-col items-center">
         <Query />
-        <Content />
+        <Response />
       </main>
     </div>
   );
