@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { app } from "./client";
+import Header from "./components/header";
 
 export default function App() {
   useEffect(() => {
@@ -22,15 +23,8 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <button
-        onClick={() =>
-          (window.location.href = "http://localhost:3030/oauth/google")
-        }
-      >
-        Admin
-      </button>
+    <div className="flex flex-col">
+      <Header />
     </div>
   );
 }
