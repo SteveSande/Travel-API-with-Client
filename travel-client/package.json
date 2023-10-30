@@ -12,6 +12,7 @@
   "dependencies": {
     "@feathersjs/authentication-client": "^5.0.11",
     "@feathersjs/rest-client": "^5.0.11",
+    "jotai": "^2.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

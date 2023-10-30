@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
-import { app } from "../client";
+import { queryAtom } from "../atoms";
+import { useAtom } from "jotai";
+import { queries } from "../queries";
 
 export default function Response() {
+  const [query, setQuery] = useAtom(queryAtom);
   const [response, setResponse] = useState("Error");
 
   useEffect(() => {
-    let pictures;
     async function getPics() {
-      pictures = await app.service("pictures").find();
-      setResponse(pictures);
+      let res = await queries[query];
+      setResponse(res);
     }
 
     getPics();

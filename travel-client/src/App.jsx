@@ -7,23 +7,8 @@ import Response from "./components/response";
 
 export default function App() {
   useEffect(() => {
+    // this stores the access token in local storage if one exists
     app.authenticate();
-
-    // let pictures;
-    // async function getPics() {
-    //   await app.service("pictures").create({
-    //     picture: "'test'",
-    //     destination: "'test'",
-    //     region: "'test'",
-    //     country: "'test'",
-    //     subdivision: "'test'",
-    //     tags: ["'test'", "'test'"],
-    //   });
-    //   pictures = await app.service("pictures").find();
-    //   console.log(pictures);
-    // }
-
-    // getPics();
   }, []);
 
   return (

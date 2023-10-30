@@ -2,7 +2,7 @@ import NavItem from "./nav-item";
 
 export default function Header() {
   return (
-    <header className="bg-gray-200">
+    <header className="bg-gray-200 mb-5">
       <div className="flex text-center p-10 bg-gray-400">
         <div className="w-1/3"></div>
         <h1 className="bg-red-300 w-1/3 text-2xl font-bold">Travel API</h1>
