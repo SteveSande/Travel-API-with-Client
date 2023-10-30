@@ -15,7 +15,7 @@ export default function Response() {
   }, []);
 
   return (
-    <div className="w-96 bg-pink-200 border-2 border-black rounded m-5 p-1">
+    <div className=" bg-pink-200 border-2 border-black rounded m-5 p-1 overflow-auto w-[1000px] h-[600px]">
       <pre>{JSON.stringify(response, null, 2)}</pre>
     </div>
   );
