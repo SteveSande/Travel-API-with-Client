@@ -1,6 +1,15 @@
 import NavItem from "./nav-item";
+import { navSelectionAtom } from "../atoms";
+import { useAtom } from "jotai";
+import { useEffect } from "react";
 
 export default function Header() {
+  const [navSelection, setNavSelection] = useAtom(navSelectionAtom);
+
+  function onNavClick(text) {
+    setNavSelection(text);
+  }
+
   return (
     <header className="bg-gray-200 mb-5">
       <div className="flex text-center p-10 bg-gray-400">
@@ -18,9 +27,15 @@ export default function Header() {
         </div>
       </div>
       <ul className="flex justify-center">
-        <NavItem text="Random Pictures" />
-        <NavItem text="Curated Pictures" />
-        <NavItem text="Field Lists" />
+        <NavItem
+          text="Random Pictures"
+          clickHandler={() => onNavClick("random")}
+        />
+        <NavItem
+          text="Curated Pictures"
+          clickHandler={() => onNavClick("curated")}
+        />
+        <NavItem text="Field Lists" clickHandler={() => onNavClick("lists")} />
       </ul>
     </header>
   );
