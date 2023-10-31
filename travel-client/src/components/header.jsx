@@ -1,7 +1,6 @@
 import NavItem from "./nav-item";
 import { navSelectionAtom } from "../atoms";
 import { useAtom } from "jotai";
-import { useEffect } from "react";
 
 export default function Header() {
   const [navSelection, setNavSelection] = useAtom(navSelectionAtom);
