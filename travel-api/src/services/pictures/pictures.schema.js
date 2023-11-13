@@ -13,6 +13,7 @@ export const pictureSchema = Type.Object(
     region: Type.Optional(Type.String()),
     country: Type.Optional(Type.String()),
     subdivision: Type.Optional(Type.String()),
+    city: Type.Optional(Type.String()),
     tags: Type.Optional(Type.Array(Type.String()))
   },
   { $id: 'Picture', additionalProperties: false }
@@ -25,7 +26,7 @@ export const pictureExternalResolver = resolve({})
 // Schema for creating new entries
 export const pictureDataSchema = Type.Pick(
   pictureSchema,
-  ['picture', 'destination', 'region', 'country', 'subdivision', 'tags'],
+  ['picture', 'destination', 'region', 'country', 'subdivision', 'city', 'tags'],
   {
     $id: 'PictureData'
   }
@@ -48,13 +49,17 @@ export const pictureQueryProperties = Type.Pick(pictureSchema, [
   'region',
   'country',
   'subdivision',
+  'city',
   'tags'
 ])
 export const pictureQuerySchema = Type.Intersect(
   [
-    querySyntax(pictureQueryProperties),
+    // This will additionally allow querying for `{ name: { $ilike: 'Dav%' } }`
+    querySyntax(pictureQueryProperties, {
+      name: Type.Boolean()
+    }),
     // Add additional query properties here
-    Type.Object({}, { additionalProperties: false })
+    Type.Object({})
   ],
   { additionalProperties: false }
 )

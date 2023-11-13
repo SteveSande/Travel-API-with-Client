@@ -4,7 +4,14 @@ import FieldListButton from "./fieldListButton";
 
 export default function QueryCustomizer() {
   const [navSelection, setNavSelection] = useAtom(navSelectionAtom);
-  const fields = ["Destination", "Region", "Country", "Subdivision", "Tags"];
+  const fields = [
+    "Destination",
+    "Region",
+    "Country",
+    "Subdivision",
+    "City",
+    "Tags",
+  ];
 
   switch (navSelection) {
     case "random":

@@ -14,6 +14,7 @@ import {
 } from './pictures.schema.js'
 import { PictureService, getOptions } from './pictures.class.js'
 import { picturePath, pictureMethods } from './pictures.shared.js'
+import { randomizer } from '../../hooks/randomizer.js'
 
 export * from './pictures.class.js'
 export * from './pictures.schema.js'
@@ -37,8 +38,8 @@ export const picture = (app) => {
     },
     before: {
       all: [schemaHooks.validateQuery(pictureQueryValidator), schemaHooks.resolveQuery(pictureQueryResolver)],
-      find: [],
-      get: [],
+      find: [randomizer],
+      get: [randomizer],
       create: [schemaHooks.validateData(pictureDataValidator), schemaHooks.resolveData(pictureDataResolver)],
       patch: [schemaHooks.validateData(picturePatchValidator), schemaHooks.resolveData(picturePatchResolver)],
       remove: []
