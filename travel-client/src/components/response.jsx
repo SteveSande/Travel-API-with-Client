@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { queryAtom } from "../atoms";
+import { urlAtom } from "../atoms";
 import { useAtom } from "jotai";
 
 export default function Response() {
-  const [query, setQuery] = useAtom(queryAtom);
   const [response, setResponse] = useState("Error");
 
   // useEffect(() => {

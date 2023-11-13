@@ -8,8 +8,17 @@ import QueryCustomizer from "./components/query-customizer";
 
 export default function App() {
   useEffect(() => {
-    // this stores the access token in local storage if one exists
-    app.authenticate();
+    async function storeToken() {
+      try {
+        await app.reAuthenticate();
+      } catch (error) {
+        console.log(
+          "app.authenticate() didn't complete, typically because the user is not logged in."
+        );
+      }
+    }
+
+    storeToken();
   }, []);
 
   return (
