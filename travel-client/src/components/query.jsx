@@ -1,8 +1,9 @@
-import { urlAtom } from "../atoms";
+import { urlAtom, resAtom } from "../atoms";
 import { useAtom } from "jotai";
 
 export default function Query() {
   const [url, setUrl] = useAtom(urlAtom);
+  const [res, setRes] = useAtom(resAtom);
 
   async function get() {
     console.log("click");
@@ -10,7 +11,7 @@ export default function Query() {
     try {
       let res = await fetch(url.toString());
       let resJSON = await res.json();
-      console.log(resJSON.data);
+      setRes(resJSON.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
